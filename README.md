@@ -1,4 +1,4 @@
-# adv-SR: Enhancing Stealth and Fidelity of Adversarial Examples via Super-Resolution Reconstruction
+# Enhancing Stealth and Fidelity of Adversarial Examples via Super-Resolution Reconstruction
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
@@ -39,19 +39,43 @@ git clone https://github.com/xie-yifang/advSR.git
 cd advSR
 ```
 
-2. Train:
+2. Prepare Data
+
+DIV2K Dataset
+Download **DIV2K_train_HR.zip** (800 high-resolution images). 
+Extract the dataset and place it under `./data/DIV2K_train_HR/`.
+
+```bash
+python scripts/split_images.py \
+  --input_dir ./data/DIV2K_train_HR \
+  --train_dir ./data/DIV2K_train_GT \
+```
+Test Set
+
+The Set5 dataset is already included in the ./data/Set5/ folder and can be used directly for testing.
+
+3. Train:
 
 ```bash
 python train_net.py --config_path ./configs/train/RRDBNet_x2-DIV2K.yaml
 
 python train_gan.py --config_path ./configs/train/ESRGAN_x2-DIV2K.yaml
 ```
-3. Test:
+4. Test:
 
 ```bash
 python test.py --config_path --config_path ./configs/test/ESRGAN_x2-imagenet.yaml
 
 ```
-
+```bibtex
+@misc{wang2018esrgan,
+    title={ESRGAN: Enhanced Super-Resolution Generative Adversarial Networks},
+    author={Xintao Wang and Ke Yu and Shixiang Wu and Jinjin Gu and Yihao Liu and Chao Dong and Chen Change Loy and Yu Qiao and Xiaoou Tang},
+    year={2018},
+    eprint={1809.00219},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
+```
 
 
