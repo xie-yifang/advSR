@@ -1,0 +1,6 @@
+opencv-python
+numpy>=1.25.2
+tqdm>=4.66.1
+PyYAML
+typing>=3.7.4.3
+natsort>=8.4.0
